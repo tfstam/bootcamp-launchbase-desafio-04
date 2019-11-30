@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <section id="recipes">
+    <div class="cards">
+      {% for recipe in recipes %}
+        <div class="card" id="{{ loop.index0 }}">
+          <div class="hide-content"></div>
+          <div class="card__image">
+            <img src="{{recipe.image}}" alt="{{recipe.title}}">
+          </div>
+          <div class="card__title">
+            <p>{{recipe.title}}</p>
+          </div>
+          <div class="card__author">
+            <p>por {{recipe.author}}</p>
+          </div>
+        </div>
+      {%endfor%}
+    </div>
+  </section>
+{% endblock %}
+
+
+{% block scripts %}
+  <script src="/redirectRecipePage.js"></script>
+{% endblock %}

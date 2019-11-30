@@ -1,0 +1,56 @@
+{% extends "layout.njk" %}
+
+  {% block content %}
+    <section id="home__banner">
+      <div class="home__banner-text">
+        <h1>As melhores receitas</h1>
+        <p>Aprenda a construir os melhores pratos
+            com receitas criadas por profissionais
+            do mundo inteiro.
+        </p>
+      </div>
+      <img src="/images/chef.png" alt="chef">
+    </section>
+
+    <section id="featured">
+      <h2>Mais acessadas</h2>
+      <div class="cards">
+        {% for recipe in recipes %}
+          {% if loop.index <= 6 %}
+            <div class="card">
+              <div class="card__image">
+                <img src="{{recipe.image}}" alt="{{recipe.title}}">
+              </div>
+              <div class="card__title">
+                <p>{{recipe.title}}</p>
+              </div>
+              <div class="card__author">
+                <p>por {{recipe.author}}</p>
+              </div>
+            </div>
+          {% endif %}
+        {%endfor%}
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-overlay">
+      <div class="modal-container">
+        <div class="modal-content">
+          <img src="" alt="">
+          <div class="card__title">
+            <p></p>
+          </div>
+          <div class="card__author">
+            <p></p>
+          </div>
+        </div>
+  
+        <a class="close">Fechar Modal</a>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block scripts %}
+    <script src="/script.js"></script>
+  {% endblock %}

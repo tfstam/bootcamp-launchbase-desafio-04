@@ -1,0 +1,45 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <section id="recipe">
+    <div class="recipe__image-container">
+      <img src="{{ recipe.image }}" alt="">
+    </div>
+
+    <div class="recipe__header">
+      <h1>{{ recipe.title }}</h1>
+      <p>por {{ recipe.author }}</p>
+    </div>
+
+    <div class="recipe-content">
+      <div class="content-toggle">
+        <h2>Ingredientes</h2>
+        <div class="content">
+          <ul>
+            {% for ingredient in recipe.ingredients %}
+              <li>{{ingredient}}</li>  
+            {% endfor %}
+          </ul>
+        </div>
+        <h2>Modo de preparo</h2>
+        <div class="content">
+          <ul>
+            {% for preparation in recipe.preparation %}
+              <li>{{preparation}}</li>  
+            {% endfor %}
+          </ul>
+        </div>
+        <h2>Informações Adicionais</h2>
+        <div class="content">
+          <p>{{ recipe.information | escape | nl2br }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/buttonToggle.js"></script>
+{% endblock %}
+
+
