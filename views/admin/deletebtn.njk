@@ -1,0 +1,13 @@
+<button type="submit">Deletar</button>
+<input type="hidden" name="id" value="{{ recipe.id }}">
+<script>
+
+  const formDelete = document.querySelector('#form-delete')
+
+  formDelete.addEventListener("submit", function(event) {
+    const confirmation = confirm("Deseja Deletar?")
+    if(!confirmation) {
+      event.preventDefault()
+    }
+  })       
+</script>

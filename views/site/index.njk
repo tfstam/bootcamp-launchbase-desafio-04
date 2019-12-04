@@ -1,10 +1,10 @@
-{% extends "layout.njk" %}
+{% extends "site/layout.njk" %}
 
 {% block content %}
   <section id="recipes">
     <div class="cards">
       {% for recipe in recipes %}
-        <div class="card" id="{{ loop.index0 }}">
+        <div class="card" id="{{ loop.index }}">
           <div class="hide-content"></div>
           <div class="card__image">
             <img src="{{recipe.image}}" alt="{{recipe.title}}">
@@ -23,5 +23,5 @@
 
 
 {% block scripts %}
-  <script src="/redirectRecipePage.js"></script>
+  <script src="/js/redirectRecipePage.js"></script>
 {% endblock %}
